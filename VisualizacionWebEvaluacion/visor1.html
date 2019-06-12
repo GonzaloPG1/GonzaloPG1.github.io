@@ -8,9 +8,8 @@
 <!-- enlace a JavaScript de Leaflet (justo tras CSS) -->
 <script src="./leaflet/leaflet.js"></script>
 
-<script src="./provincias.js"></script>
-
  </head>
+
   <body>
   <h1>
     <font face="Comic Sans MS,arial,verdana">Visor 1</font>
@@ -37,31 +36,31 @@
     // Líneas de atribución
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' + '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
         id: 'mapbox.streets'
-    }).addTo(mi_mapa);
+    }).addTo(mi_mapa); //añadir al mapa
 
 
     // incluir TMS Stamen
       var stamen_tms = L.tileLayer(
       'http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png', { // URL con tiles
-          // texto de atribución - IMPORTANTE
+          // texto de atribución
           attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash;Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
           maxZoom: 20  // zoom máximo
           });
-      stamen_tms.addTo(mi_mapa);
+      stamen_tms.addTo(mi_mapa); //añadir al mapa
 
       // añadir TM de OpenStreetMap render Mapnik
       var OSM_mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19,
+          maxZoom: 19, //zoom máximo
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           });
-      OSM_mapnik.addTo(mi_mapa);
+      OSM_mapnik.addTo(mi_mapa); // añadir al mapa
 
       //añadir TM de OpenStreetMap Surfer Roads
       var OpenMapSurfer_Roads = L.tileLayer('https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png', {
-        	 maxZoom: 19,
+        	 maxZoom: 19, //zoom máximo
         	attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           });
-      OpenMapSurfer_Roads.addTo(mi_mapa)
+      OpenMapSurfer_Roads.addTo(mi_mapa) //añadir al mapa
 
       //añadir PNOA
       var PNOA = L.tileLayer.wms('http://www.idee.es/wms/PNOA/PNOA?', {  //URL WMS
@@ -74,7 +73,7 @@
       //incluir control
 
       var baseMaps = {                  // variable con apartado de mapas base
-        "OpenStreetMap": OSM_mapnik,  // elemento a incluir y descripción
+        "OpenStreetMap": OSM_mapnik,  // elementos a incluir, descripción
         "Stamen": stamen_tms,
         "SurferRoads": OpenMapSurfer_Roads,
         };
@@ -89,10 +88,10 @@
 
         //añadir escala
 
-      var escala = L.control.scale({
+      var escala = L.control.scale({ //variable de la escala
         imperial:false,
-        position:"topleft"})
-        escala.addTo(mi_mapa);
+        position:"topleft"})        //posición de la escala
+        escala.addTo(mi_mapa);      //añadir escala al mapa
   </script>
 
   </body>
